@@ -9,7 +9,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-hub-network-policy
   namespace: default
 spec:
@@ -36,7 +35,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-front-network-policy
   namespace: default
 spec:
@@ -63,7 +61,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-worker-network-policy
   namespace: default
 spec:
@@ -92,7 +89,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-service-account
   namespace: default
 ---
@@ -271,7 +267,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-cluster-role-default
   namespace: default
 rules:
@@ -319,7 +314,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-cluster-role-binding-default
   namespace: default
 roleRef:
@@ -341,7 +335,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-self-config-role
   namespace: default
 rules:
@@ -371,7 +364,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-self-config-role-binding
   namespace: default
 roleRef:
@@ -394,7 +386,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-hub
   namespace: default
 spec:
@@ -416,7 +407,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-front
   namespace: default
 spec:
@@ -469,7 +459,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-worker-daemon-set
   namespace: default
 spec:
@@ -540,10 +529,8 @@ spec:
             value: 'production'
           resources:
             limits:
-              cpu: 
               memory: 5Gi
             requests:
-              cpu: 
               memory: 50Mi
           securityContext:
             capabilities:
@@ -604,10 +591,8 @@ spec:
             value: 'production'
           resources:
             limits:
-              cpu: 
               memory: 5Gi
             requests:
-              cpu: 
               memory: 50Mi
           securityContext:
             capabilities:
@@ -685,7 +670,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-hub
   namespace: default
 spec:
@@ -748,10 +732,8 @@ spec:
               port: 8080
           resources:
             limits:
-              cpu: 
               memory: 5Gi
             requests:
-              cpu: 
               memory: 50Mi
           volumeMounts:
           - name: saml-x509-volume
@@ -783,7 +765,6 @@ metadata:
     app.kubernetes.io/instance: kubeshark
     app.kubernetes.io/version: "52.3.86"
     app.kubernetes.io/managed-by: Helm
-  annotations:
   name: kubeshark-front
   namespace: default
 spec:

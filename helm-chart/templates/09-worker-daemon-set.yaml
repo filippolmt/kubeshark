@@ -6,8 +6,8 @@ metadata:
     app.kubeshark.co/app: worker
     sidecar.istio.io/inject: "false"
     {{- include "kubeshark.labels" . | nindent 4 }}
-  annotations:
   {{- if .Values.tap.annotations }}
+  annotations:
     {{- toYaml .Values.tap.annotations | nindent 4 }}
   {{- end }}
   name: kubeshark-worker-daemon-set
@@ -122,12 +122,7 @@ spec:
           - name: SENTRY_ENVIRONMENT
             value: '{{ .Values.tap.sentry.environment }}'
           resources:
-            limits:
-              cpu: {{ .Values.tap.resources.sniffer.limits.cpu }}
-              memory: {{ .Values.tap.resources.sniffer.limits.memory }}
-            requests:
-              cpu: {{ .Values.tap.resources.sniffer.requests.cpu }}
-              memory: {{ .Values.tap.resources.sniffer.requests.memory }}
+            {{- toYaml .Values.tap.resources.sniffer | nindent 12 }}
           securityContext:
             capabilities:
               add:
@@ -225,12 +220,7 @@ spec:
           - name: SENTRY_ENVIRONMENT
             value: '{{ .Values.tap.sentry.environment }}'
           resources:
-            limits:
-              cpu: {{ .Values.tap.resources.tracer.limits.cpu }}
-              memory: {{ .Values.tap.resources.tracer.limits.memory }}
-            requests:
-              cpu: {{ .Values.tap.resources.tracer.requests.cpu }}
-              memory: {{ .Values.tap.resources.tracer.requests.memory }}
+            {{- toYaml .Values.tap.resources.tracer | nindent 12 }}
           securityContext:
             capabilities:
               add:

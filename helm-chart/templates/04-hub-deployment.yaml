@@ -5,8 +5,8 @@ metadata:
   labels:
     app.kubeshark.co/app: hub
     {{- include "kubeshark.labels" . | nindent 4 }}
-  annotations:
   {{- if .Values.tap.annotations }}
+  annotations:
     {{- toYaml .Values.tap.annotations | nindent 4 }}
   {{- end }}
   name: {{ include "kubeshark.name" . }}-hub
@@ -78,12 +78,7 @@ spec:
             tcpSocket:
               port: 8080
           resources:
-            limits:
-              cpu: {{ .Values.tap.resources.hub.limits.cpu }}
-              memory: {{ .Values.tap.resources.hub.limits.memory }}
-            requests:
-              cpu: {{ .Values.tap.resources.hub.requests.cpu }}
-              memory: {{ .Values.tap.resources.hub.requests.memory }}
+            {{- toYaml .Values.tap.resources.hub | nindent 12 }}
           volumeMounts:
           - name: saml-x509-volume
             mountPath: "/etc/saml/x509"
